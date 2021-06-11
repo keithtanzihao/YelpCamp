@@ -1,0 +1,44 @@
+/* Pretty sure this isnt recommended but it will do for now */
+@import url('main.css');
+@import url('newEdit.css');
+@import url('review.css');
+@import url('user.css');
+@import url('starability.css');
+@import url('indiv.css');
+@import url('login.css');
+@import url('home.css');
+@import url('navbar.css');
+@import url('register.css');
+@import url('new.css');
+
+
+html {
+    overflow: scroll;
+    min-width: 500px;
+}
+
+body.d-flex.flex-column.vh-100 {
+    background-color: #F0F0F0;
+}
+
+/* main {
+    background-color: #F0F0F0;
+} */
+
+.top-buffer {
+    margin-top: 5%;
+}
+
+.bot-buffer {
+    margin-bottom: 3%;
+}
+
+.both-buffer {
+    margin-top: 5%;
+    margin-bottom: 3%;
+}
+
+input.form-control img {
+    width: 100%;
+}
+

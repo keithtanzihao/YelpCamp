@@ -1,0 +1,167 @@
+#nav-bg {
+    background-color: #222120;
+}
+
+#main-bg {
+    position: relative;
+    background-image: url("https://images.unsplash.com/photo-1522660517748-2931a7a4aaf6?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=2275&q=80");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: 0% 34%;
+
+    height: 30%;
+    width: 100%;
+    padding-bottom: 10%;;
+}
+
+@media screen and (min-width: 1400px) {
+    #main-bg .container h1 {
+        font-size: 5vh;
+        text-align: center;
+        position: absolute;
+        top: 40%;
+        left: 20%;
+    }
+}
+
+@media screen and (min-width: 1024px) and (max-width: 1400px)  {
+    #main-bg .container h1 {
+        font-size: 4vh;
+        position: absolute;
+        top: 40%;
+        left: 15%;
+    }
+
+}
+
+
+@media screen and (min-width: 700px) and (max-width: 1024px)  {
+    #main-bg .container h1 {
+        font-size: 3.5vh;
+        position: absolute;
+        top: 40%;
+        left: 15%;
+    }
+}
+
+@media only screen and (min-width: 489px) and (max-width: 700px) {
+    #main-bg .container h1 {
+        font-size: 2vh;
+        position: absolute;
+        top: 40%;
+        left: 15%;
+    }
+
+    .overlay-text .cg-title {
+        font-size: 4vh;
+    }
+
+    .overlay-text .cg-location {
+        font-size: 3vh;
+    }
+}
+
+#search-wrapper {
+    position: relative;
+    margin-bottom: 2vh;
+    width: 100%;
+}
+
+.search-bar {
+    position: relative;
+    margin: 0 auto;
+    width: 90%;
+    height: 3rem;
+
+    background-color: white;
+    border: 1px solid;
+}
+
+#search-bar {
+    position: relative;
+    left: 50%;
+    transform: translateX(-50%);
+
+    width: 95%;
+    height: 2.8rem;
+    margin: 0 auto;
+    
+    border: none;
+    outline: none;
+}
+
+.search-btn {
+    position: absolute;
+    top: 50%;
+    right: 0%;
+    transform: translateY(-50%);
+
+    width: 10%;
+    height: 100%;
+
+    border: none;
+    outline: none;
+}
+
+
+.cg-container {
+    position: relative;
+    height: 35vh;
+}
+
+.cg-container img {
+    width: 100%;
+    height: 100%;
+}
+
+.img-main {
+    object-fit: cover;
+}
+
+a:link{
+    text-decoration: none!important;
+}
+
+.cg-info {
+    position: relative;
+    color: black;
+}
+
+.cg-info.bot-border {
+    border: 2px solid rgba(0,0,0,.125);
+    border-top: 0px;
+    border-radius: 0.25rem;
+}
+
+.overlay {
+    color: #fff;
+}
+
+.cg-container .overlay {
+    background: rgba(0, 0, 0, 0.7);
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    opacity: 0.8;
+}
+
+.cg-container .overlay .overlay-text {
+    position: absolute;
+    text-align: center;
+    top: 50%;
+    left: 50%;
+    -webkit-transform: translate(-50%, -50%);
+    -moz-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+}
+
+.col .cg-container .overlay:hover {
+    opacity: 0;
+}
+
+#map {
+    width: 100%;
+    height: 500px;
+}

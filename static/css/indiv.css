@@ -1,0 +1,8 @@
+#nav-bg {
+    background-color: #222120;
+}
+
+img.d-block.w-100 {
+    height: 480px;
+    object-fit: cover;
+}

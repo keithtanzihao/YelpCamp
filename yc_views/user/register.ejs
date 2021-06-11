@@ -1,0 +1,52 @@
+<% layout('/layouts/boilerplate') %> 
+
+<div id="register-bg">
+
+    <%- include('../partials/navbar') %> 
+
+    <div class="container top-buffer">
+
+        <%- include('../partials/notifyFlash') %> 
+        
+        <div class="row">
+            <h1 class="text-center mb-4">New User</h1>
+            <div class="col-4 offset-4 top-border">
+                <form class="validate-form m-4" action="/register" method="POST" novalidate>
+            
+                    <div class="mb-3">
+                        <label for="email" class="form-label">Email</label>
+                        <input type="text" class="form-control" id="email" name="user[email]" required>
+                        <div class="valid-feedback">Looks Good !</div>
+                    </div>
+    
+                    <div class="mb-3">
+                        <label for="username" class="form-label">Username</label>
+                        <input type="text" class="form-control" id="username" name="user[username]" required>
+                        <div class="valid-feedback">Looks Good !</div>
+                    </div>
+        
+                    <div class="mb-3">
+                        <label for="password" class="form-label">Password</label>
+                        <input type="text" class="form-control" id="password" name="user[password]" required>
+                        <div class="valid-feedback">Looks Good !</div>
+                    </div>
+    
+                    <div class="d-grid gap-2">
+                        <button class="btn btn-primary">Register</button>
+                    </div>
+                </form>
+        
+            </div>
+        </div>
+    
+        <div class="row">
+            <div class="col-4 offset-4 bot-border">
+                <div class="d-grid gap-2 mx-4 mb-4">
+                    <h3 class="text-center">Already a User ?</h3>
+                    <a href="/login" class="btn btn-primary"> Login</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+

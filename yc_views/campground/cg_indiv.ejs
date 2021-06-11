@@ -1,0 +1,118 @@
+<% layout('layouts/boilerplate') %> 
+
+<div id="nav-bg">
+    <%- include('../partials/navbar') %> 
+</div>
+
+<main class="container mt-3">
+
+    <%- include('../partials/notifyFlash') %> 
+
+    <div class="row">
+        <div class="col-8 mb-3">
+            <div class="card">
+                
+                <div id="carouselExampleControls" class="carousel slide" data-bs-ride="carousel">
+                    <div class="carousel-inner">
+                        <% cg.img.forEach((img, index) => { %>
+                            <div class="carousel-item <%= index === 0 ? 'active' : '' %>">
+                                <img class="d-block w-100" src="<%= img.url %>" alt="">
+                            </div>
+                        <% }) %> 
+                    </div>
+
+                    <% if (cg.img.length > 1) { %>
+                    <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="prev">
+                        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                        <span class="visually-hidden">Previous</span>
+                    </button>
+                    <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="next">
+                        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                        <span class="visually-hidden">Next</span>
+                    </button>
+                    <% } %> 
+                </div>
+
+                <div class="card-body">
+                    <div class="row">
+                        <div class="col-6">
+                            <h4 class="card-title"><%= cg.title %></h4>
+                        </div>
+                        <div class="col-6">
+                            <h4 class="card-title text-end">$<%= cg.price %>/Night</h4>
+                        </div>
+                    </div>
+                    
+                    <p class="card-text"><%= cg.description %> </p>
+                </div>
+            
+                <ul class="list-group list-group-flush">
+                    <li class="list-group-item"><b>Submitted By: </b><%= cg.author.username %> </li>
+                </ul>
+                
+                <% if (currentUser && currentUser._id != cg.author._id) { %> 
+                <div class="card-body">
+                    <a class="btn btn-warning" href="/yelpCamp/<%= cg._id %>/edit">Edit</a>
+                    <form class="d-inline" action="/yelpCamp/<%= cg._id %>?_method=DELETE" method="POST">
+                        <button class="btn btn-danger">Delete</button>
+                    </form>
+                </div>
+                <% } %> 
+            </div>
+
+            <%- include('../partials/review') %> 
+        </div>
+        <div class="col-4">
+            <div id='map' style='width: 100%; height: 480px;'></div>
+            <div class="card bot-buffer p-2">
+                <ul class="list-group list-group-flush">
+                    <li class="list-group-item">
+                        <h5 class="location-text"><img src="/images/pin.png" alt=""><%= cg.location %></h5>
+                    </li>
+                    
+                </ul>
+            </div>
+
+            <div class="card top-buffer p-2">
+                <ul class="list-group list-group-flush">
+                    <li class="list-group-item">
+                        <h5 class="location-text"><img src="/images/email.png" alt=""> Contact</h5>
+                    </li>
+                    <li class="list-group-item">
+                        <h5 class="location-text"><%= cg.author.email  %></h5>
+                    </li>
+                     
+                </ul>
+            
+            </div>
+        </div>
+    </div>
+
+    <!-- EXTREMELY BAD PRACTISE -->
+    <script>
+        // SHOULD NOT DO THIS BUT CANT BE BOTHERED 
+        const mapToken = '<%- process.env.MAPBOX_TOKEN %>';
+        // const campground = {features: <%- JSON.stringify(cg) %> };
+        const campground = '<%- JSON.stringify(cg)%>';
+        
+        const obj = JSON.parse(campground);
+        
+        mapboxgl.accessToken = mapToken;
+        const map = new mapboxgl.Map({
+            container: 'map', // container ID
+            style: 'mapbox://styles/mapbox/streets-v11', // style URL
+            center: obj.geometry.coordinates, // starting position [lng, lat]
+            zoom: 13 // starting zoom
+        });
+
+        new mapboxgl.Marker()
+            .setLngLat(obj.geometry.coordinates)
+            .setPopup(
+            new mapboxgl.Popup({ offset: 25 })
+                .setHTML(
+                    `<h3>${obj.title}</h3><p>${obj.location}</p>`
+                )
+            )
+            .addTo(map)
+    </script>
+</main>

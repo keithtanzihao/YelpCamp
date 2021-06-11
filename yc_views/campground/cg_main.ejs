@@ -1,0 +1,67 @@
+<% layout('/layouts/boilerplate') %> 
+
+<!-- EXTREMELY SCUFFED HTML -->
+
+<div id="nav-bg">
+    <%- include('../partials/navbar') %> 
+</div>
+<div id="main-bg">
+    <div class="container m-5">
+        <h1>CAMPGROUNDS</h1>
+    </div>
+</div>
+
+<main class="container mt-3">
+
+    <%- include('../partials/notifyFlash') %> 
+    
+    <div class="container">
+
+        <!-- <div id="search-wrapper" class="">
+            <div class="search-bar">
+                <input type="text" id="search-bar" placeholder="Search...">
+                <button class="search-btn btn btn-primary">Search</button>
+            </div>
+        </div>
+     -->
+        <% for (let i=0; i<listOfCg.length; i+=3) { %> 
+        <div class="row">
+            <% for (let j=0; j<3; j++) { %> 
+                <% if ((i+j) < listOfCg.length) { %> 
+    
+                <div class="col col-lg-4 d-flex bot-buffer">
+                    <a href="/yelpCamp/<%= listOfCg[i+j]._id %> ">
+                        <div class="cg-container">
+                            <img class="img-main" src="<%= listOfCg[i+j].img[0].url %> " alt="">
+
+                            <div class="overlay">
+                                <div class="overlay-text">
+                                    <h4 class="cg-title"><%= listOfCg[i+j].title %></h4>
+                                    <p class="cg-location"><%= listOfCg[i+j].location %></p>
+                                    <div id="avg-review-<%=(i+j)%>" class="avg-reviews"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+                <% } %> 
+            <% } %> 
+        </div>
+        <% } %> 
+    </div>
+
+
+    <script>
+        const mapToken = '<%- process.env.MAPBOX_TOKEN %>';
+        const campground = {features: <%- JSON.stringify(listOfCg) %>};
+        const cg = '<%- JSON.stringify(listOfCg) %>';
+    </script>
+
+    <script src="/js/clustermap.js"></script>
+
+</main>
+
+
+
+
+

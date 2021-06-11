@@ -1,0 +1,16 @@
+<% layout('/layouts/boilerplate') %> 
+
+<br>
+<div class="row">
+    <div class="col-6 offset-3 text-wrap">
+        <div class="alert alert-danger" role="alert">
+            <h4 class="alert-heading"><%= err.message %></h4>
+            <h6>Error: <%= err.statusCode %></h6>
+            <hr>
+            <!-- Extremely scuffed i know -->
+            <p class="mb-0" style="word-wrap: break-word"><%= err.stack %></p>
+        </div>
+    </div>
+</div>
+
+

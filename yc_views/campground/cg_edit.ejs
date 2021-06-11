@@ -1,0 +1,62 @@
+<% layout('/layouts/boilerplate') %> 
+
+<div class="container top-buffer">
+    <div class="row">
+        <div class="text-center bot-buffer">
+            <h1>Edit Campground:</h1>
+            <h2><%= cg.title %></h2>
+        </div>
+
+        <form class="validate-form" action="/yelpCamp/<%= cg._id %>?_method=PUT" method="POST" novalidate enctype="multipart/form-data">
+            <div class="col-6 offset-3">
+                <div class="mb-3">
+                    <label for="title" class="form-label">Title</label>
+                    <input type="text" class="form-control" id="title" name="campgrounds[title]" value="<%= cg.title%>" required>
+                    <div class="valid-feedback">Looks Good !</div>
+                </div>
+    
+                <div class="mb-3">
+                    <label for="location" class="form-label">Location</label>
+                    <input type="text" class="form-control" id="location" name="campgrounds[location]" value="<%= cg.location%>" required>
+                    <div class="valid-feedback">Looks Good !</div>
+                </div>
+    
+                <div class="mb-3">
+                    <label for="price" class="form-label" id="labell">Price</label>
+                    <div class="input-group">
+                        <span class="input-group-text" id="price-label">$</span>
+                        <input type="text" class="form-control" id="price" name="campgrounds[price]" placeholder="0.00" value="<%= cg.price%>" required>
+                        <div class="valid-feedback">Looks Good !</div>
+                    </div>
+                </div>
+    
+                <div class="mb-3">
+                    <label for="description" class="form-label">Description</label>
+                    <textarea type="text" class="form-control" id="description" name="campgrounds[description]"><%= cg.description%> </textarea>
+                    <div class="valid-feedback">Looks Good !</div> 
+                </div>
+
+                <div class="mb-3">
+                    <label for="description" class="form-label">Existing Images</label>
+
+                    <div id="mini-box">
+                        <% cg.img.forEach((item, i) => { %>
+                            <img class="c-mini-img" src="<%= cg.img[i].url %>">
+                        <% }) %> 
+                    </div>
+                </div>
+
+
+                <div class="mb-3">
+                    <label for="image" class="form-label">Add Image Url</label><br>
+                    <input class="form-control" type="file" id="formFile" name="img" multiple onchange="showImage(event)">
+                    
+                    <div id="mini-box"></div>
+                    <div class="valid-feedback">Looks Good !</div>
+                </div>
+    
+                <button class="btn btn-info">Edit Campground</button>
+            </div>
+        </form>
+    </div>
+</div>

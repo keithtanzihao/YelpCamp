@@ -1,0 +1,67 @@
+<% layout('/layouts/boilerplate') %> 
+
+<div id="nav-bg">
+    <%- include('../partials/navbar') %> 
+</div>
+
+<div id="new-bg">
+
+    <%- include('../partials/notifyFlash') %> 
+
+    <div class="container top-buffer">
+        <div class="row">
+            <h1 class="text-center">NEW CAMPGROUND</h1>
+            <div class="col-6 offset-3">
+                <form class="validate-form" action="/yelpCamp/" method="POST" novalidate enctype="multipart/form-data">
+            
+                    <div class="mb-3">
+                        <label for="title" class="form-label">Title</label>
+                        <input type="text" class="form-control" id="title" name="campgrounds[title]" required>
+                        <div class="valid-feedback">Looks Good !</div>
+                    </div>
+        
+                    <div class="mb-3">
+                        <label for="location" class="form-label">Location</label>
+                        <input type="text" class="form-control" id="location" name="campgrounds[location]" required>
+                        <div class="valid-feedback">Looks Good !</div>
+                    </div>
+        
+                    <div class="mb-3">
+                        <label for="price" class="form-label" id="labell">Price</label>
+                        <div class="input-group">
+                            <span class="input-group-text" id="price-label">$</span>
+                            <input type="text" class="form-control" id="price" name="campgrounds[price]" placeholder="0.00" required>
+                        </div>
+                        <div class="valid-feedback">Looks Good !</div>
+                    </div>
+        
+                    <div class="mb-3">
+                        <label for="description" class="form-label">Description</label>
+                        <textarea type="text" class="form-control" id="description" 
+                        name="campgrounds[description]" required></textarea> 
+                        <div class="valid-feedback">Looks Good !</div>
+                    </div>
+    
+                    <div class="mb-3">
+                        <label for="image" class="form-label">Image Url</label><br>
+    
+                        <input class="form-control" type="file" id="formFile" name="img" multiple onchange="showImage(event)">
+                        
+                        <div id="mini-box"></div>
+                    
+                        <!-- <input type="text" class="form-control" id="image" name="campgrounds[img]" required> -->
+                        <div class="valid-feedback">Looks Good !</div>
+                    </div>
+        
+                    <button class="btn btn-success">Add Campground</button>
+                </form>
+        
+            </div>
+        </div>
+    </div>
+
+</div>
+
+
+
+

@@ -1,0 +1,37 @@
+.list-group-item.review-item {
+    padding: 0;
+}
+
+.card.mb-3 .row {
+    width: 100%;
+    margin: 0;
+}
+
+.card.mb-3 .col-9.review-body {
+    padding: .5rem 1rem;
+}
+
+.card.mb-3 .col.review-button {
+    padding: 0;
+}
+
+.col.review-button form {
+    display: table;
+    height: 100%;
+    width: 100%;
+}
+
+.col.review-button form button {
+    height: 100%;
+    width: 100%;
+    opacity: 0;
+}
+
+button.btn.btn-danger:hover {
+    transition: 0.8;
+    opacity: 1;
+}
+
+.card-text {
+    font-size: 1rem;
+}

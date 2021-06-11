@@ -1,0 +1,44 @@
+<% layout('/layouts/boilerplate') %> 
+
+<div id="login-bg">
+
+    <%- include('../partials/navbar') %> 
+
+    <div class="container top-buffer">
+
+        <%- include('../partials/notifyFlash') %> 
+        
+        <div class="row">
+            <h1 class="text-center mb-4">Login</h1>
+            <div class="col-4 offset-4 top-border">
+    
+                <form class="validate-form m-4" action="/login" method="POST" novalidate>
+                    <div class="mb-3">
+                        <label for="username" class="form-label">Username</label>
+                        <input type="text" class="form-control" id="title" name="username" required>
+                        <div class="valid-feedback">Looks Good !</div>
+                    </div>
+        
+                    <div class="mb-3">
+                        <label for="password" class="form-label">Password</label>
+                        <input type="text" class="form-control" id="location" name="password" required>
+                        <div class="valid-feedback">Looks Good !</div>
+                    </div>
+        
+                    <div class="d-grid gap-2">
+                        <button class="btn btn-primary">Login</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    
+        <div class="row">
+            <div class="col-4 offset-4 bot-border">
+                <div class="d-grid gap-2 mx-4 mb-4">
+                    <h3 class="text-center mt-4">Not a user yet ?</h3>
+                    <a href="/register" class="btn btn-primary"> Sign Up</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

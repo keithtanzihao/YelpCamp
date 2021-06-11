@@ -1,0 +1,12 @@
+.form-label {
+    font-weight: bold;
+}
+
+
+.mini-img, .c-mini-img {
+    margin: 1em;
+    height: 120px;
+    width: 120px;
+    object-fit: cover;
+    border: 3px solid;
+}

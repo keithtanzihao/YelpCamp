@@ -1,0 +1,31 @@
+a.navbar-brand  {
+    color: #FFFFFF;
+}
+
+a.navbar-brand:hover {
+    color: #FFFFFF;
+}
+
+.nav-item {
+    padding: 0rem 0.5rem;
+}
+
+.nav-link.active {
+    color: #FFFFFF;
+    border-bottom: 0.25rem solid transparent;
+}
+
+.nav-link.active:hover {
+    color: #FFFFFF;
+    border-bottom: 0.25rem solid;
+}
+
+/* 
+Doesnt work, cant remove border around menu icon
+button.navbar-toggler:focus {
+    outline: white solid;
+} */
+
+.hamburger-img {
+    width: 1.5rem;
+}

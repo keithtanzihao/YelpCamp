@@ -1,0 +1,12 @@
+
+***************** delete Operator *****************
+
+
+The JavaScript delete operator removes a property from an object; if no more references to the same property are held, it is eventually released automatically.
+
+https://stackoverflow.com/questions/208105/how-do-i-remove-a-property-from-a-javascript-object
+
+https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/delete
+
+NOTE: Extremely long
+http://perfectionkills.com/understanding-delete/

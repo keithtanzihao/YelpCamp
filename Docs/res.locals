@@ -1,0 +1,9 @@
+
+***************** req.locals *****************
+
+
+Object pass to whatever rednering engine app is useing (ejs, etc) 'Global' in render so no need to prepend anything
+
+https://stackoverflow.com/questions/24072333/difference-between-assigning-to-res-and-res-locals-in-node-js-express
+
+http://www.passportjs.org/docs/username-password/
