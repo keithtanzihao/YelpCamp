@@ -50,7 +50,7 @@ db.once("open", () => {
     console.log("MONGOOSE DB CONNECTED");
 })
 
-const secret = process.env.SECRET ||  'Badsecret', // not sure if i should remove this
+const secret = process.env.SECRET || 'Badsecret' // not sure if i should remove this
 
 // Must be placed before routes
 const sessionConfig = {
@@ -135,7 +135,9 @@ app.use((err, req, res, next) => {
 
 
 // Binds & listens for connections on specific host/port
-app.listen(3000, () => {
-    console.log('Server on port 3000');
+const port = process.env.PORT || 3000
+
+app.listen(port, () => {
+    console.log(`Server on port ${port}`);
 });
 
