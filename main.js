@@ -31,8 +31,7 @@ const MongoStore = require('connect-mongo');
 // const morgan = require('morgan');
 // app.use(morgan('tiny'));
 
-// const dbUrl = process.env.DB_URL;
-const dbUrl = 'mongodb://localhost:27017/yelpCamp'
+const dbUrl = process.env.DB_URL || 'mongodb://localhost:27017/yelpCamp'
 
 mongoose.connect(dbUrl, {
     useNewUrlParser: true,
